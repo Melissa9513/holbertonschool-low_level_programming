@@ -7,11 +7,11 @@
  */
 void print_most_numbers(void)
 {
-    char numbers[] = "01356789\n";
-    int i;
+	char numbers[] = "01356789\n";
+	int i;
 
-    for (i = 0; numbers[i] != '\0'; i++)
-    {
-        _putchar(numbers[i]);
-    }
+	for (i = 0; numbers[i] != '\0'; i++)
+	{
+		_putchar(numbers[i]);
+	}
 }
