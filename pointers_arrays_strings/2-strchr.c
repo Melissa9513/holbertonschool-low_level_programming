@@ -10,16 +10,17 @@
  */
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return (s);
-		s++;
-	}
+	int i = 0;
 
-	/* Check if c is '\0' — strchr should return pointer to the null terminator */
-	if (*s == c)
-		return (s);
-	if c == '\0';
-	return (0); /* equivalent to NULL */
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return (&s[i]);
+		i++;
+	}
+	/* Check if c is '\0' strchr should return pointer t null */
+	if (s[i] == c)
+		return (&s[i]);
+	else
+		return (0); /* equivalent to NULL */
 }
