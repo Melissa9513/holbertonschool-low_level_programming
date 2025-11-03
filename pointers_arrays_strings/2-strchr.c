@@ -18,7 +18,7 @@ char *_strchr(char *s, char c)
 			return (&s[i]);
 		i++;
 	}
-	/* Check if c is '\0' strchr should return pointer t null */
+	/* Check if c is '\0' _strchr should return pointer t null */
 	if (s[i] == c)
 		return (&s[i]);
 	else
