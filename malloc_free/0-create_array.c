@@ -2,26 +2,29 @@
 #include <stdlib.h>
 
 /**
- * create_array - crée un tableau de chars et l'initialise avec un char spécifique
- * @size: taille du tableau à créer
- * @c: caractère utilisé pour initialiser le tableau
+ * create_array - Creates an array of chars and
+ *                initializes it with a specific char.
+ * @size: The size of the array to be initialized.
+ * @c: The specific char to intialize the array with.
  *
- * Return: pointeur vers le tableau, ou NULL si échec ou size = 0
+ * Return: If size == 0 or the function fails - NULL.
+ *         Otherwise - a pointer to the array.
  */
 char *create_array(unsigned int size, char c)
 {
-    char *array;
-    unsigned int i;
+	char *array;
+	unsigned int index;
 
-    if (size == 0)
-        return (NULL);
+	if (size == 0)
+		return (NULL);
 
-    array = malloc(sizeof(char) * size);
-    if (array == NULL)
-        return (NULL);
+	array = malloc(sizeof(char) * size);
 
-    for (i = 0; i < size; i++)
-        array[i] = c;
+	if (array == NULL)
+		return (NULL);
 
-    return (array);
+	for (index = 0; index < size; index++)
+		array[index] = c;
+
+	return (array);
 }
