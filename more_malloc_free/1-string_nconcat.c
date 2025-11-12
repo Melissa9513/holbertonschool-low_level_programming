@@ -1,49 +1,44 @@
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * string_nconcat - concatenates two strings
- * @s1: first string
- * @s2: second string
- * @n: number of bytes to copy from s2
+ * string_nconcat - Concatenates two strings using at
+ *                  most an inputted number of bytes.
+ * @s1: The first string.
+ * @s2: The second string.
+ * @n: The maximum number of bytes of s2 to concatenate to s1.
  *
- * Return: pointer to the newly allocated memory containing s1 + first n bytes of s2,
- *         or NULL if memory allocation fails
+ * Return: If the function fails - NULL.
+ *         Otherwise - a pointer to the concatenated space in memory.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-    unsigned int i, j, len1 = 0, len2 = 0;
-    char *concat;
+	char *concat;
+	unsigned int len = n, index;
 
-    /* Treat NULL as empty string */
-    if (s1 == NULL)
-        s1 = "";
-    if (s2 == NULL)
-        s2 = "";
+	if (s1 == NULL)
+		s1 = "";
 
-    /* Find lengths of s1 and s2 */
-    while (s1[len1])
-        len1++;
-    while (s2[len2])
-        len2++;
+	if (s2 == NULL)
+		s2 = "";
 
-    /* If n >= len2, use the full s2 */
-    if (n >= len2)
-        n = len2;
+	for (index = 0; s1[index]; index++)
+		len++;
 
-    /* Allocate memory for s1 + n bytes of s2 + null terminator */
-    concat = malloc(sizeof(char) * (len1 + n + 1));
-    if (concat == NULL)
-        return (NULL);
+	concat = malloc(sizeof(char) * (len + 1));
 
-    /* Copy s1 */
-    for (i = 0; i < len1; i++)
-        concat[i] = s1[i];
+	if (concat == NULL)
+		return (NULL);
 
-    /* Copy n bytes of s2 */
-    for (j = 0; j < n; j++)
-        concat[i + j] = s2[j];
+	len = 0;
 
-    concat[i + j] = '\0';
+	for (index = 0; s1[index]; index++)
+		concat[len++] = s1[index];
 
-    return (concat);
+	for (index = 0; s2[index] && index < n; index++)
+		concat[len++] = s2[index];
+
+	concat[len] = '\0';
+
+	return (concat);
 }
