@@ -5,15 +5,15 @@
  * malloc_checked - allocates memory using malloc
  * @b: number of bytes to allocate
  *
- * Return: pointer to allocated memory
- * If malloc fails, terminate with status 98
+ * Return: pointer to the allocated memory
+ *         exits with status 98 if malloc fails
  */
 void *malloc_checked(unsigned int b)
 {
-    void *ptr;
+	void *ptr;
 
-    ptr = malloc(b);
-    if (ptr == NULL)
-        exit(98);
-    return (ptr);
+	ptr = malloc(b);
+	if (ptr == NULL)
+		exit(98);
+	return (ptr);
 }
